@@ -4,9 +4,7 @@ import AssetsHighCharts from "./components/AssetsHighCharts";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
         <AssetsHighCharts/>
-      </header>
     </div>
   );
 }

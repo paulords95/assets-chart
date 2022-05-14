@@ -36,7 +36,7 @@ const AssetsHighCharts = () => {
             name: 'Preço',
             type: 'area',
             data: prices,
-            gapSize: 10,
+            gapSize: 2,
             tooltip: {
                 valueDecimals: 1
             },
