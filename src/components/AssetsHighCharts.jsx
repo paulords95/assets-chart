@@ -6,36 +6,26 @@ import axios from "axios";
 const AssetsHighCharts = () => {
     const [prices, setPrices] = useState([])
 
-    useEffect(()=> {
-        (async() => {
+    useEffect(() => {
+        (async () => {
             const data = await axios.get('http://191.252.205.198:3000/binance-history?filter=EVERY_HOUR&limit=1000000&page=1', {
                 headers: {
                     "Access-Control-Allow-Origin": "*"
                 }
             })
             const pricesArr = []
-            data.data.forEach((price)=> {
-
+            data.data.forEach((price) => {
                 if (price.asset === "LRC") {
-
-
                     const obj = [
                         Date.parse(price.data),
                         parseFloat(price.totalBalanceBRL)
-
                     ]
                     pricesArr.push(obj)
-
                 }
-
-
-
             })
-
             setPrices(pricesArr.reverse())
         })()
     }, [])
-
 
 
     const options = {
@@ -68,15 +58,15 @@ const AssetsHighCharts = () => {
     }
 
 
-   return (
-       <div>
-           <HighchartsReact
-               highcharts={Highcharts}
-               constructorType={'stockChart'}
-               options={options}
-           />
-       </div>
-   )
+    return (
+        <div>
+            <HighchartsReact
+                highcharts={Highcharts}
+                constructorType={'stockChart'}
+                options={options}
+            />
+        </div>
+    )
 }
 
 export default AssetsHighCharts
